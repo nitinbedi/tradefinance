@@ -1,0 +1,25 @@
+# Spring properties
+spring:
+  application:
+    name: student-management-system
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    
+# Mongo properties
+  data:
+    mongodb:
+      uri: mongodb://trade:tradefinance@cluster0-shard-00-00-wh8kw.mongodb.net:27017,cluster0-shard-00-01-wh8kw.mongodb.net:27017,cluster0-shard-00-02-wh8kw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority
+      #host: mongodb://trade:tradefinance@cluster0-shard-00-00-wh8kw.mongodb.net
+      #port: 27017
+      #database: test
+
+
+# HTTP Server
+server:
+  port: 9090 # HTTP (Tomcat) port
+tradeparams:
+  recordfetchlimit: 10000
+  dateformat: dd/MM/yyyy
+  recordsPerPage: 7
