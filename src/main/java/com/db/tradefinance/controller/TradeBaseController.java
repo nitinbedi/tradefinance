@@ -51,14 +51,14 @@ public class TradeBaseController {
     }
     public Trade getSingleTrade(String id) throws ServiceException {
         Trade trade = null;
-        trade = !StringUtils.isEmpty(id)? tradeService.getById(id) : null;
+        trade = !StringUtils.isEmpty(id)? tradeService.getById(id) : new Trade();
         return trade;
     }
     public void saveTrade(Trade trade) throws ServiceException {
         if(!tradeService.tradeVersionUpsert(trade))
         {
             List<ErrorObject> errors = new ArrayList<ErrorObject>();
-            ErrorObject error = new ErrorObject("1","{trade.version.conflict}","version");
+            ErrorObject error = new ErrorObject("1","trade.Version.conflict","version");
             errors.add(error);
             trade.setErrors(errors);
         }

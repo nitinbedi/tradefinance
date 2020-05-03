@@ -11,7 +11,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Trade Finance System</a>
+				<a class="navbar-brand" href="#"><spring:message code="trade.system.name"/></a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -38,22 +38,22 @@
 	<div class="container">
 
 		<div class="starter-template">
-			<h1>Trades</h1>
+			<h1><spring:message code="trade.plural"/></h1>
 			<div class="panel panel-default">
 			  
 		  	<!-- Table -->
 		  	<table class="table">
 		    	<thead>
 		    		<tr>
-		    			<td>Trade Id</td>
-		    			<td>Version</td>
-		    			<td>Counter Party-Id</td>
-		    			<td>Book-Id</td>
-		    			<td>Maturity Date</td>
-		    			<td>Expired?</td>
-		    			<td>Created Date</td>
-		    			<td>Modified Date</td>
-		    			<td>Action</td>
+		    			<td><spring:message code="trade.id"/></td>
+		    			<td><spring:message code="trade.Version"/></td>
+		    			<td><spring:message code="trade.CounterPartyId"/></td>
+		    			<td><spring:message code="trade.BookId"/></td>
+		    			<td><spring:message code="trade.MaturityDate"/></td>
+		    			<td><spring:message code="trade.Expiry"/></td>
+		    			<td><spring:message code="trade.CreatedDate"/></td>
+		    			<td><spring:message code="trade.ModifiedDate"/> </td>
+		    			<td><spring:message code="trade.Action"/></td>
 		    		</tr>
 		    	</thead>
 		    	<tbody>
@@ -68,17 +68,17 @@
 							<th>${trade.expired}</th>
 							<th><fmt:formatDate value="${trade.createdDate}" type="date" pattern="${config.dateformat}"/></th>
 							<th><fmt:formatDate value="${trade.modifiedDate}" type="date" pattern="${config.dateformat}"/></th>
-							<th >
+							<th>
 								<div class="btn-group">
 								  <button
 								  	id="${trade.id}"
 								  	style="width: 70px" 
 								  	type="button" 
 								  	class="btn btn-success"
-								  	onclick="window.location='/save?q=${trade.id}'">Edit</button>
-								  <form action="/delete" onsubmit="return confirm('Are you sure delete!')">
+								  	onclick="window.location='/save?q=${trade.id}'"><spring:message code="trade.Action.Edit"/></button>
+								  <form action="/delete" onsubmit="return confirm('<spring:message code="trade.Action.Delete.Confirm"/>')">
 								  	<input type="hidden" name="id" value="${trade.id}" />
-								  	<button style="width: 70px" type="submit" class="btn btn-danger">Delete</button>
+								  	<button style="width: 70px" type="submit" class="btn btn-danger"><spring:message code="trade.Action.Delete"/></button>
 								  </form>
 								</div>
 							</th>

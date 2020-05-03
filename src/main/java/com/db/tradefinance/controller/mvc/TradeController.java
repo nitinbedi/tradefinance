@@ -23,7 +23,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
+import java. util. Arrays;
 import com.db.tradefinance.model.Trade;
 
 @Controller
@@ -75,36 +75,57 @@ public class TradeController extends TradeBaseController {
 	}
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
-	public String saveTrade(@ModelAttribute  @Validated Trade trade, BindingResult bindingResult, Model model)
+	public String saveTrade( @Validated @ModelAttribute("trade") Trade trade, BindingResult bindingResult, Model model)
                                                                                             throws ServiceException {
-		List<Book> books = null;
 		LOG.info("inside saveTrade method");
-        saveTrade( trade);
-        tradeValidations.bindErrors(trade, bindingResult);
-        LOG.info("bindingResult.getAllErrors().size " + bindingResult.getAllErrors().size());
-
-        if (bindingResult.getAllErrors().size()>0) {
-            LOG.info("bindingResult.getAllErrors().getMessage " +
-                    bindingResult.getAllErrors().get(0).getDefaultMessage());
-			LOG.info("bindingResult.getAllErrors().getCode " +
-					bindingResult.getAllErrors().get(0).getCode());
-        }
-
-        if (bindingResult.hasErrors()) {
-			LOG.info("Returning save page");
-			try{
-				LOG.info("fetching the books details"+bookService.getAll().size());
-				books = bookService.getAll();
-				model.addAttribute("bookList", books);
-				model.addAttribute("config", appConfiguration);
-			}catch(Exception e){
-				LOG.error(e.getMessage(), e);
+		tradeValidations.validate(trade, bindingResult);
+		if(!hasErrors( trade, bindingResult,  model)) {
+			saveTrade( trade);
+			LOG.info("saveTrade executed");
+			tradeValidations.bindErrors(trade, bindingResult);
+			if(hasErrors( trade, bindingResult,  model)) {
+				LOG.info("Errors after executing saveTrade");
+				return "save";
 			}
+		}
+		else {
 			return "save";
 		}
 		return "redirect:/";
 	}
-	
+
+	private boolean hasErrors(Trade trade, BindingResult bindingResult, Model model)
+	{
+		List<Book> books = null;
+		if (bindingResult.hasErrors()) {
+			LOG.info("Returning save page");
+			LOG.info("bindingResult.getAllErrors().size " + bindingResult.getAllErrors().size());
+			try{
+				LOG.info("fetching the books details"+bookService.getAll().size());
+				books = bookService.getAll();
+				model.addAttribute("bookList", books);
+				model.addAttribute("trade", trade);
+				model.addAttribute("config", appConfiguration);
+			}catch(Exception e){
+				LOG.error(e.getMessage(), e);
+			}
+			if (bindingResult.getAllErrors().size()>0) {
+				for (ObjectError errorObject : bindingResult.getAllErrors()) {
+					LOG.info("bindingResult.getAllErrors().getCode " +
+							errorObject.getCode());
+					LOG.info("bindingResult.getAllErrors().getCodes " +
+							Arrays.toString(errorObject.getCodes()));
+					LOG.info("bindingResult.getAllErrors().getArguments " +
+							Arrays.toString(errorObject.getArguments()));
+					LOG.info("bindingResult.getAllErrors().getDefaultMessage " +
+							errorObject.getDefaultMessage());
+				}
+			}
+			return true;
+		}
+		else
+			return false;
+	}
 	@RequestMapping("/delete")
 	public String deleteBooking(@ModelAttribute Trade trade) throws ServiceException {
 		tradeService.delete(trade);

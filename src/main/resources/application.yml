@@ -22,4 +22,4 @@ server:
 tradeparams:
   recordfetchlimit: 10000
   dateformat: dd/MM/yyyy
-  recordsPerPage: 7
+  recordsPerPage: 6

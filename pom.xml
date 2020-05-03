@@ -15,29 +15,7 @@
 		<java.version>1.8</java.version>
 		<!-- versions -->
 		
-		<http.port>8080</http.port>
-		<mongo.host>mongodb://trade:tradefinance@cluster0-shard-00-00-wh8kw.mongodb.net:27017,cluster0-shard-00-01-wh8kw.mongodb.net:27017,cluster0-shard-00-02-wh8kw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority</mongo.host>
-		<mongo.port>27017</mongo.port>
-		<mongo.database>test</mongo.database>
-		<mongo.username>trade</mongo.username>
-		<mongo.password>tradefinance</mongo.password>
-<!--
-mongodb
-user trade
-pas  tradefinane
 
-mongodb://trade:tradefinance@cluster0-shard-00-00-wh8kw.mongodb.net:27017,cluster0-shard-00-01-wh8kw.mongodb.net:27017,cluster0-shard-00-02-wh8kw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority
-
-
-MongoClientURI uri = new MongoClientURI(
-    "mongodb://trade:tradefinance@cluster0-shard-00-00-wh8kw.mongodb.net:27017,cluster0-shard-00-01-wh8kw.mongodb.net:27017,cluster0-shard-00-02-wh8kw.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority");
-
-MongoClient mongoClient = new MongoClient(uri);
-MongoDatabase database = mongoClient.getDatabase("test");
-
-userid mr_bedi@yahoo.com
-password gugunitin
--->
 	</properties>
 
 	<parent>

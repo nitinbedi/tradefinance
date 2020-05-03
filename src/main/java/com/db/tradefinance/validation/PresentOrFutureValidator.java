@@ -20,6 +20,8 @@ public class PresentOrFutureValidator
                                  final ConstraintValidatorContext context) {
         LOG.info("***** check future validations ******* ");
         // Only use the date for comparison
+        if(value==null)
+            return false;
         return (DateUtils.presentOrFutureDate(value));
 
     }

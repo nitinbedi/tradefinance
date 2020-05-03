@@ -22,25 +22,23 @@ public class TradeValidations implements Validator {
     public void validate(Object target, Errors errors) {
         if (target instanceof Trade)
         {
-            LOG.info("Instance of trade object ************* ");
+            LOG.info("validate of trade object ************* ");
         }
         LOG.info("inside the validation method &&&&&&&&&&& ");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,
-                "tradeId", "trade.mandatory","trade required.");
+
     }
 
     public void bindErrors(Object c, Errors errors) {
-        BindingResult br = (BindingResult)errors;
+
         if (c instanceof Trade)
         {
             LOG.info("Instance of trade object ************* ");
         }
-        LOG.info("inside the validation method &&&&&&&&&&& ");
+        LOG.info("inside the bindErrors method &&&&&&&&&&& ");
         Trade trade =(Trade)c;
         if (trade.getErrors()!=null) {
             for (ErrorObject errorObject : trade.getErrors()) {
-                ObjectError error = new ObjectError(errorObject.getPath(), errorObject.getErrorDesc());
-                br.addError(error);
+                errors.rejectValue(errorObject.getPath(), errorObject.getErrorDesc());
 
             }
         }

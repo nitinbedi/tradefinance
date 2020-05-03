@@ -10,7 +10,7 @@ import java.util.Date;
 public class DateUtils  {
     private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
     public static boolean presentOrFutureDate(final Date date) {
-
+        if(date==null) return false;
         LOG.info("***** check future validations ******* "+(date) + " " + (currentDate() ));
         LOG.info("***** check future validations 2 ******* "+(date.compareTo(currentDate() )) + " " +
                                                                                         date.after(currentDate() ));

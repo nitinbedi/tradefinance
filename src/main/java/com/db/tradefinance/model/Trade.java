@@ -18,17 +18,19 @@ import java.util.List;
 public class Trade extends EntityBase {
 
 
-	@NotEmpty( message = "{trade.mandatory}")
+	@NotEmpty( message = "trade.id.Mandatory")
 	private String tradeId;
-	@Min(value=1, message = "{trade.version.minvalue}")
-	private int version;
-	@NotEmpty(message = "counter Party ID cannot be null")
+
+	@NotNull(message = "trade.Version.Mandatory")
+	@Min(value=1, message = "trade.Version.minvalue")
+	private Integer version;
+	@NotEmpty(message = "{trade.CounterPartyId.Mandatory}")
 	private String counterPartyID;
-	@NotEmpty(message = "book id cannot be null")
+	@NotEmpty(message = "{trade.BookId.Mandatory}")
 	private String bookid;
 
-	@NotNull(message = "Maturity Date cannot be null")
-	@PresentOrFuture(message = "{trade.maturityDate.notFutureDate}")
+	@NotNull(message = "trade.MaturityDate.Mandatory")
+	@PresentOrFuture(message = "trade.maturityDate.notFutureDate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date maturityDate;
 
@@ -52,11 +54,11 @@ public class Trade extends EntityBase {
 		this.tradeId = tradeId;
 	}
 
-	public int getVersion() {
+	public Integer getVersion() {
 		return version;
 	}
 
-	public void setVersion(int version) {
+	public void setVersion(Integer version) {
 		this.version = version;
 	}
 
@@ -77,10 +79,14 @@ public class Trade extends EntityBase {
 	}
 
 	public Date getMaturityDate() {
+		if(maturityDate==null)
+			return null;
 		return DateUtils.removeTimeFromDate(maturityDate);
 	}
 
 	public void setMaturityDate(Date maturityDate) {
+		if(maturityDate==null)
+			return;
 		this.maturityDate = DateUtils.removeTimeFromDate(maturityDate);
 	}
 
