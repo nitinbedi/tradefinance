@@ -1,7 +1,7 @@
 # Spring properties
 spring:
   application:
-    name: student-management-system
+    name: Trade-Finance-System
   mvc:
     view:
       prefix: /WEB-INF/jsp/
