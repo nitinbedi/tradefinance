@@ -15,7 +15,7 @@ import java.util.UUID;
 public class CorrelationInterceptor extends HandlerInterceptorAdapter {
     private static final String CORRELATION_ID_HEADER_NAME = "X-Correlation-Id";
     private static final String CORRELATION_ID_LOG_VAR_NAME = "correlationId";
-    private static final Logger LOG = LoggerFactory.getLogger(GenericDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CorrelationInterceptor.class);
     @Override
     public boolean preHandle(final HttpServletRequest request, final HttpServletResponse response,
                              final Object handler) throws Exception {

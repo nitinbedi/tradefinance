@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 public class UpdateExpiredTrades {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UpdateExpiredTrades.class);
     @Autowired
     private TradeService tradeService;
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

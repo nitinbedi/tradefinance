@@ -25,7 +25,7 @@ public class ExpiredTradeTest {
     UpdateExpiredTrades updateExpiredTrades;
     @Mock
     TradeServiceImpl tradeService;
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ExpiredTradeTest.class);
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);

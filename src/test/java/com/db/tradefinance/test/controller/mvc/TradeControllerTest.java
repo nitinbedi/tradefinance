@@ -47,7 +47,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestBeanConfig.class})
 public class TradeControllerTest {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TradeControllerTest.class);
 
     private MockMvc mockMvc;
     /*@InjectMocks

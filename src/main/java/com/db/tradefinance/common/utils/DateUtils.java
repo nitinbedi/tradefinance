@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils  {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DateUtils.class);
     public static boolean presentOrFutureDate(final Date date) {
         if(date==null) return false;
         LOG.info("***** check future validations ******* "+(date) + " " + (currentDate() ));

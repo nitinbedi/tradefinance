@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 
 public class CustomAsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CustomAsyncExceptionHandler.class);
     @Override
     public void handleUncaughtException(final Throwable throwable, final Method method, final Object... obj) {
         LOG.info("Exception message - " + throwable.getMessage());

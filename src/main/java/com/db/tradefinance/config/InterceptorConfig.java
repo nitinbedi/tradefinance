@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class InterceptorConfig extends WebMvcConfigurerAdapter {
     @Autowired
     CorrelationInterceptor correlationInterceptor;
-    private static final Logger LOG = LoggerFactory.getLogger(GenericDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(InterceptorConfig.class);
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LOG.info("Interceptors have been registered. "+correlationInterceptor.getClass());

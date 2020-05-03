@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class PresentOrFutureValidator
         implements ConstraintValidator<PresentOrFuture, Date> {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PresentOrFutureValidator.class);
 
     public final void initialize(final PresentOrFuture annotation) {}
 

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Order(value=1)
 @Component
     public class ApplicationStartupRunner implements CommandLineRunner {
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ApplicationStartupRunner.class);
 
     @Autowired
     UpdateExpiredTrades updateExpiredTrades;

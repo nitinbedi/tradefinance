@@ -32,7 +32,7 @@ public class TradeServiceImplTest {
 
     @Mock
     TradeDaoImpl tradeDao;
-    private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TradeServiceImplTest.class);
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);

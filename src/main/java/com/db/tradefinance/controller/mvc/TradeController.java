@@ -1,6 +1,6 @@
 package com.db.tradefinance.controller.mvc;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import com.db.tradefinance.common.exception.ServiceException;
@@ -13,49 +13,24 @@ import com.db.tradefinance.validation.TradeValidations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.Validator;
+
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
+
 import org.springframework.web.bind.annotation.*;
 import java. util. Arrays;
 import com.db.tradefinance.model.Trade;
-
-
-
-
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-
-import java.util.Arrays;
-
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 @Controller
 public class TradeController extends TradeBaseController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
 	@Autowired
-	//@Qualifier("tradeValidations")
 	private TradeValidations tradeValidations;
 
 	@Autowired
@@ -64,10 +39,6 @@ public class TradeController extends TradeBaseController {
 	private BookService bookService;
 	@Autowired
 	private AppConfiguration appConfiguration;
-	/*@InitBinder
-	private void initBinder(WebDataBinder binder) {
-		binder.setValidator(tradeValidations);
-	}*/
 
 	@RequestMapping(path = {"/", "/{pageNo}"})
 	public String listPage(Model model, @PathVariable(required = false) Integer pageNo){

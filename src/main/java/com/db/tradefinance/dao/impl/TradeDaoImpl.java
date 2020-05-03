@@ -4,7 +4,7 @@ import com.db.tradefinance.common.exception.DataAccessException;
 import com.db.tradefinance.common.utils.DateUtils;
 import com.db.tradefinance.config.AppConfiguration;
 import com.db.tradefinance.dao.TradeDao;
-import org.assertj.core.internal.cglib.asm.$Attribute;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -12,7 +12,7 @@ import com.db.tradefinance.service.BookService;
 
 @Component
 public class SetupBook {
-	private static final Logger LOG = LoggerFactory.getLogger(TradeController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SetupBook.class);
 
 	@Autowired
 	public SetupBook(BookService bookService) {
