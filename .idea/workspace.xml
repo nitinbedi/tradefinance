@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b60e29d-28f2-4b6a-8760-d3cdd95df44c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/UpdateExpiredTrades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/UpdateExpiredTrades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/dao/impl/GenericDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/dao/impl/GenericDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/model/EntityBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/model/EntityBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/service/impl/GenericServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/service/impl/GenericServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/controller/mvc/TradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/controller/mvc/TradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/TradeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/TradeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/impl/TradeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/impl/TradeDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/model/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/model/Trade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/service/impl/TradeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/service/impl/TradeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/save.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/save.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/thk/homeservice/AppTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="4b60e29d-28f2-4b6a-8760-d3cdd95df44c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
