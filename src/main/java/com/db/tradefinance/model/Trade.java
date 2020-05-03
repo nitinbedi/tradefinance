@@ -113,6 +113,6 @@ public class Trade extends EntityBase {
 				", bookid='" + bookid + '\'' +
 				", maturityDate=" + maturityDate +
 				", expired='" + expired + '\'' +
-				'}';
+				'}' + super.toString();
 	}
 }

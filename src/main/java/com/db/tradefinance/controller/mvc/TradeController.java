@@ -26,6 +26,30 @@ import org.springframework.web.bind.annotation.*;
 import java. util. Arrays;
 import com.db.tradefinance.model.Trade;
 
+
+
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import java.util.Arrays;
+
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 @Controller
 public class TradeController extends TradeBaseController {
 
@@ -55,14 +79,14 @@ public class TradeController extends TradeBaseController {
 		return "list";
 	}
 
-	@RequestMapping("/save")
+	@RequestMapping("/savePage")
 	public String savePage(@RequestParam(value="q", required=false) String id, Model model) throws ServiceException {
 		
 		Trade trade = getSingleTrade( id);;
 		List<Book> books = null;
 		try{
-			LOG.info("fetching the books details"+bookService.getAll().size());
 			books = bookService.getAll();
+
 		}catch(Exception e){
 			LOG.error(e.getMessage(), e);
 		}
@@ -74,7 +98,7 @@ public class TradeController extends TradeBaseController {
 		return "save";
 	}
 	
-	@RequestMapping(value="/save", method=RequestMethod.POST)
+	@RequestMapping(value="/savePage", method=RequestMethod.POST)
 	public String saveTrade( @Validated @ModelAttribute("trade") Trade trade, BindingResult bindingResult, Model model)
                                                                                             throws ServiceException {
 		LOG.info("inside saveTrade method");

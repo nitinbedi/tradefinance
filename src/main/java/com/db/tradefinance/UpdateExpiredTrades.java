@@ -1,6 +1,7 @@
 package com.db.tradefinance;
 
 import com.db.tradefinance.common.exception.ServiceException;
+import com.db.tradefinance.common.utils.DateUtils;
 import com.db.tradefinance.controller.mvc.TradeController;
 import com.db.tradefinance.model.Trade;
 import com.db.tradefinance.service.TradeService;
@@ -40,10 +41,9 @@ public class UpdateExpiredTrades {
 
     }
     @Async
-    public void updateExpiredTrade(Trade trade)  throws ServiceException {
+    private void updateExpiredTrade(Trade trade)  throws ServiceException {
         LOG.info("Trades getting executed asynchronously"+trade.toString());
-
-
+        trade.setExpired();
         tradeService.edit(trade);
     }
 }

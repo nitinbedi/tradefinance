@@ -22,7 +22,7 @@ public class TradeServiceImpl extends GenericServiceImpl<Trade> implements Trade
 
 	@Autowired
 	protected TradeDao tradeDao;
-	private static final Logger LOG = LoggerFactory.getLogger(Trade.class);
+	private static final Logger LOG = LoggerFactory.getLogger(TradeServiceImpl.class);
 
 	@PostConstruct
 	void init() {
@@ -30,6 +30,7 @@ public class TradeServiceImpl extends GenericServiceImpl<Trade> implements Trade
     }
 	@Override
 	public Trade add(Trade obj) throws ServiceException {
+		obj.setId(null);
 		obj.setExpired();
 		return super.add(obj);
 	}
@@ -48,7 +49,7 @@ public class TradeServiceImpl extends GenericServiceImpl<Trade> implements Trade
 	}
 	public boolean tradeVersionUpsert(Trade obj) throws ServiceException {
 		try{
-			LOG.info("obj : "+obj.getId());
+			LOG.info("obj : "+obj.getTradeId());
 
 			List<Trade> trades = tradeDao.getEqOrHigherVersionTrades(obj);
 			if(trades!=null && trades.size()>1)
@@ -61,10 +62,13 @@ public class TradeServiceImpl extends GenericServiceImpl<Trade> implements Trade
 					return false;
 				if(obj.getVersion()== trades.get(0).getVersion()) {
 					obj.setId(trades.get(0).getId());
+					LOG.info("Going to update the record ");
 					edit(obj);
 				}
 				else
 				{
+					LOG.info("Going to insert the record ");
+
 					add(obj);
 				}
 				return  true;
@@ -72,7 +76,8 @@ public class TradeServiceImpl extends GenericServiceImpl<Trade> implements Trade
 			}
 			else
 			{
-				LOG.info("obj ******** why duplicate? "+obj.getId());
+				LOG.info("obj ******** Going to insert the record "+obj.getId());
+
 				add(obj);
 				return true;
 			}

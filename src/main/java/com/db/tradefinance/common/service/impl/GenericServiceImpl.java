@@ -24,6 +24,10 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 	@Override
 	public T getById(Object id) throws ServiceException {
 		try{
+			if (id==null)
+			{
+				throw new ServiceException("ID is null cannot fetch trade details");
+			}
 			return genericDao.getById(id);
 		}catch(DataAccessException de){
 			throw translateException(de);
@@ -65,6 +69,8 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 	@Override
 	public T edit(T obj) throws ServiceException{
 		try{
+			if(obj==null)
+				throw new ServiceException("Input trade object is null ");
 			EntityBase eb = (EntityBase)obj;
 			eb.setCreatedDate(((EntityBase)getById(eb.getId())).getCreatedDate());
 			eb.setModifiedDate();

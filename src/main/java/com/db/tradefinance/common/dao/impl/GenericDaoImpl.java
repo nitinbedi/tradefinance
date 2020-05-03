@@ -39,8 +39,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 		}
 	)
 	public void add(T object) throws DataAccessException {
-		if (logger.isDebugEnabled())
-			logger.debug("type {} add", type);
+		logger.info("type {} add", type);
 		try {
 			mongoOperations.insert(object);
 		} catch (Exception e) {

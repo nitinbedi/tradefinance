@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -16,7 +17,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Home</a></li>
-					<li><a href="/save">New Trade</a></li>
+					<li><a href="/savePage">New Trade</a></li>
 					<li><a href="/1">1</a></li>
 					<li><a href="/2">2</a></li>
 					<li><a href="/3">3</a></li>
@@ -75,7 +76,7 @@
 								  	style="width: 70px" 
 								  	type="button" 
 								  	class="btn btn-success"
-								  	onclick="window.location='/save?q=${trade.id}'"><spring:message code="trade.Action.Edit"/></button>
+								  	onclick="window.location='/savePage?q=${trade.id}'"><spring:message code="trade.Action.Edit"/></button>
 								  <form action="/delete" onsubmit="return confirm('<spring:message code="trade.Action.Delete.Confirm"/>')">
 								  	<input type="hidden" name="id" value="${trade.id}" />
 								  	<button style="width: 70px" type="submit" class="btn btn-danger"><spring:message code="trade.Action.Delete"/></button>

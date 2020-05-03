@@ -36,7 +36,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Home</a></li>
-					<li><a href="/save">New Trade</a></li>
+					<li><a href="/savePage">New Trade</a></li>
 					<li><a href="/1">1</a></li>
 					<li><a href="/2">2</a></li>
 					<li><a href="/3">3</a></li>

@@ -92,11 +92,12 @@ public abstract class EntityBase{
 	}
 
 	@Override
-    public String toString() {
-        return "EntityBase{" +
-                "id=" + id +
-                '}';
-    }
-
-
+	public String toString() {
+		return "EntityBase{" +
+				"id='" + id + '\'' +
+				", status=" + status +
+				", modifiedDate=" + modifiedDate +
+				", createdDate=" + createdDate +
+				'}';
+	}
 }

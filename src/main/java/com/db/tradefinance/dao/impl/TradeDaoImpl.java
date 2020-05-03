@@ -4,6 +4,7 @@ import com.db.tradefinance.common.exception.DataAccessException;
 import com.db.tradefinance.common.utils.DateUtils;
 import com.db.tradefinance.config.AppConfiguration;
 import com.db.tradefinance.dao.TradeDao;
+import org.assertj.core.internal.cglib.asm.$Attribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class TradeDaoImpl extends GenericDaoImpl<Trade> implements TradeDao {
 	}
 
 	public List<Trade> getEqOrHigherVersionTrades(final Trade trade) throws DataAccessException {
-		if (logger.isDebugEnabled())
-			logger.debug("type {} getById", Trade.class);
+			logger.info("getEqOrHigherVersionTrades : "+trade.getTradeId());
+
 		try{
 		    Query query = new Query(Criteria.where("tradeId").is(trade.getTradeId()).
                     and("version").gte(trade.getVersion()));
@@ -49,4 +50,17 @@ public class TradeDaoImpl extends GenericDaoImpl<Trade> implements TradeDao {
 			throw new DataAccessException(e);
 		}
 	}
+
+	public Trade getByTradeIdAndVersion(String tradeId, Integer version) throws DataAccessException
+	{
+
+		try{
+			Query query = new Query(Criteria.where("tradeId").is(tradeId).
+					and("version").is(version));
+			return mongoOperations.findOne(query, Trade.class);
+		}catch(Exception e){
+			throw new DataAccessException(e);
+		}
+	}
+
 }
