@@ -18,18 +18,18 @@ import java.util.List;
 public class Trade extends EntityBase {
 
 
-	@NotEmpty( message = "trade.id.Mandatory")
+	@NotEmpty( message = "NotEmpty.trade.tradeId")
 	private String tradeId;
 
-	@NotNull(message = "trade.Version.Mandatory")
+	@NotNull(message = "NotNull.trade.version")
 	@Min(value=1, message = "trade.Version.minvalue")
 	private Integer version;
-	@NotEmpty(message = "{trade.CounterPartyId.Mandatory}")
+	@NotEmpty(message = "NotEmpty.trade.counterPartyID")
 	private String counterPartyID;
-	@NotEmpty(message = "{trade.BookId.Mandatory}")
+	@NotEmpty(message = "NotEmpty.trade.bookid")
 	private String bookid;
 
-	@NotNull(message = "trade.MaturityDate.Mandatory")
+	@NotNull(message = "NotNull.trade.maturityDate")
 	@PresentOrFuture(message = "trade.maturityDate.notFutureDate")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date maturityDate;
