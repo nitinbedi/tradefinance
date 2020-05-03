@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b60e29d-28f2-4b6a-8760-d3cdd95df44c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backupSave.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/BadRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/DuplicateEmailRegisteredException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/ListenerTypeNotFound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/OldPasswordNotMatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/ResourceNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/messages/ErrorMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/messages/InfoMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/model/Sequence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/service/impl/GenericServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/service/impl/GenericServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/sse/ListenerType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/sse/SseEmitterApplicationEventListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/sse/SubmissionEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/MongoDBTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/MongoDBTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

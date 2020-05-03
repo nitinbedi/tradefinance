@@ -16,6 +16,7 @@ public class MongoDBTest {
         MongoDatabase database = mongoClient.getDatabase("test");
         System.out.println(database.getName());
         mongoClient.close();
+        // Nitin Bedi
 
 
 
