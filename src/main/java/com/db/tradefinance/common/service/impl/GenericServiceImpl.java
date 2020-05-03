@@ -53,7 +53,8 @@ public class GenericServiceImpl<T> implements GenericService<T> {
 		try{
 			EntityBase eb = (EntityBase)obj;
 			eb.setCreatedDate();
-			eb.setId(null);
+			if(eb.getId()!=null && eb.getId().equals(""))
+				eb.setId(null);
 			genericDao.add(obj);
 			return obj;
 		}catch(DataAccessException de){
