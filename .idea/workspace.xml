@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b60e29d-28f2-4b6a-8760-d3cdd95df44c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/ApplicationStartupRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/ApplicationStartupRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/UpdateExpiredTrades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/UpdateExpiredTrades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/CustomAsyncExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/exception/CustomAsyncExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/common/utils/DateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/config/InterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/config/InterceptorConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/config/SetupBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/config/SetupBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/controller/mvc/TradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/controller/mvc/TradeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/impl/TradeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/dao/impl/TradeDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/interceptor/CorrelationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/interceptor/CorrelationInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/validation/PresentOrFutureValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/db/tradefinance/validation/PresentOrFutureValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/ExpiredTradeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/ExpiredTradeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/controller/mvc/TradeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/controller/mvc/TradeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/service/TradeServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/service/TradeServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/util/DateUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/db/tradefinance/test/util/DateUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.log" beforeDir="false" afterPath="$PROJECT_DIR$/system.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
