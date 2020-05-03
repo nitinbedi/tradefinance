@@ -80,7 +80,8 @@
                                     oninvalid="setCustomValidity('<spring:message code="NotEmpty.trade.tradeId"/>');"
                                     oninput="setCustomValidity('');"
                                     path="tradeId"
-                                    />
+                                    required
+                                />
                             </div>
                                 <form:errors path="tradeId" cssClass="error" />
                         </div>
@@ -94,11 +95,12 @@
                                     type="number"
                                     name="version"
                                     id="version"
-                                    min="0"
+                                    min="1"
                                     value="${trade.version}"
                                     oninvalid="setCustomValidity('<spring:message code="NotNull.trade.version"/>');"
                                     oninput="setCustomValidity('');"
-                                    />
+                                    required
+                                />
 
                             </div>
                             <form:errors path="version" cssClass="error" />
@@ -115,9 +117,9 @@
                                     name="counterPartyID"
                                     id="counterPartyID"
                                     value="${trade.counterPartyID}"
-                                    oninvalid="setCustomValidity('<spring:message code="NotEmpty.trade.counterPartyID"/>
-                                    ');"
+                                    oninvalid="setCustomValidity('<spring:message code="NotEmpty.trade.counterPartyID"/>');"
                                     oninput="setCustomValidity('');"
+                                    required
                                 />
                             </div>
                                 <form:errors path="counterPartyID" cssClass="error" />
@@ -131,7 +133,9 @@
                                     id="bookid"
                                     class="form-control"
                                     oninvalid="setCustomValidity('<spring:message code="NotEmpty.trade.bookid"/>');"
-                                    oninput="setCustomValidity('');">
+                                    oninput="setCustomValidity('');"
+                                    required
+                                >
 
                                     <option value=""><spring:message code="trade.BookId.select"/></option>
                                     <c:forEach items="${bookList}" var="book">
@@ -139,7 +143,7 @@
                                             ${book.id == trade.bookid ? 'selected="selected"' : ''}>${book.id}
                                         </option>
                                     </c:forEach>
-                                    required
+
                                 </select>
                             </div>
                                <form:errors path="bookid" cssClass="error" />
@@ -159,9 +163,9 @@
                                     id="maturityDate"
                                     value="<fmt:formatDate value="${trade.maturityDate}"
                                     type="date" pattern="yyyy-MM-dd"/>"
-                                    oninvalid="setCustomValidity('
-                                        <spring:message code="NotNull.trade.maturityDate"/>');"
+                                    oninvalid="setCustomValidity('<spring:message code="NotNull.trade.maturityDate"/>');"
                                     oninput="setCustomValidity('');"
+                                    required
                                 />
                             </div>
                                 <form:errors path="maturityDate" cssClass="error" />
