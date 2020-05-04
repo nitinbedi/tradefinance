@@ -1,0 +1,62 @@
+@startuml
+skinparam backgroundColor #EEFBDC
+skinparam handwritten false
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBackgroundColor #A9DCDF
+LifeLineBorderColor Black
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 14
+ParticipantFontColor #FFFFFF
+ActorBackgroundColor white
+ActorFontColor DeepSkyBlue
+ActorFontSize 14
+ActorFontName Aapex
+}
+actor User
+participant "Trade Controller" as TC
+
+participant "TradeService" as TS
+
+participant "TradeDAO" as TD
+
+participant "MongoOperation" as MO
+
+User -> TC: ListPage(<<Model>>, <<PageNo>>)
+activate TC
+TC-> TC: ListPage(PageNo)
+TC -> TS: getAll(<<PageNo>>)
+note left
+**URL** is //"/id"//
+end note
+activate TS
+TS -> TD: getAll(<<PageNo>>)
+activate TD
+TD->MO: find(<<query, Trade>>)
+activate MO
+TD <<-- MO: Return <<Trades>>
+TS <<-- TD: Return <<Trades>>
+TC <<-- TS: Return <<Trades>>
+User <<-- TC: List of <<Trades>> for <<PageNo>>
+
+User -> TC: ListPage(<<Model>>,<<0>>)
+
+activate TC
+TC -> TS: getAll(<<pageNo>>)
+note left
+**URL** is //"/"//
+end note
+activate TS
+TS -> TD: getAll(<<pageNo>>)
+activate TD
+TD->MO: findAll()
+activate MO
+TD<<-- MO: Return <<Trades>>
+TS <<-- TD: Return <<Trades>>
+TC <<-- TS: Return <<Trades>>
+User <<-- TC: List of All <<Trades>>
+
+@enduml

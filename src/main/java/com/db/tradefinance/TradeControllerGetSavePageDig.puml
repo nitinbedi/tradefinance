@@ -1,0 +1,57 @@
+@startuml
+skinparam backgroundColor #EEFBDC
+skinparam handwritten false
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBackgroundColor #A9DCDF
+LifeLineBorderColor Black
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 14
+ParticipantFontColor #FFFFFF
+ActorBackgroundColor white
+ActorFontColor DeepSkyBlue
+ActorFontSize 14
+ActorFontName Aapex
+}
+actor User
+participant "Trade Controller" as TC
+participant "TradeValidations" as TV
+participant "TradeService" as TS
+participant "BookService" as BS
+participant "TradeDAO" as TD
+participant "BookDAO" as BD
+participant "MongoOperation" as MO
+
+User -> TC: savePage(<<id>>,<<Model>>)
+activate TC
+TC -> TC: getSingleTrade(<<id>>)
+note left
+**URL** is //"/savePage?q=id"//
+end note
+TC -> TC : <<id==null>> \n model.addAtrribute(\nnew Trade())
+TC -> TS: <<id != null>> \n getById(<<id>>)
+activate TS
+TS -> TD: getById(<<id>>)
+activate TD
+TD->MO: findById(id, type)
+activate MO
+TD <<-- MO: Return <<Trade>>
+TS <<-- TD: Return <<Trade>>
+TC <<-- TS: Return <<Trade>>
+TC -> TC : <<id!=null>> \n model.addAtrribute(\ntrade())
+TC -> BS: getAll()
+activate BS
+BS -> BD: findAll()
+activate BD
+BS <- BD: Return <<Books>>
+
+TC <<-- BS: Return <<Books>>
+TC -> TC : model.addAtrribute(\nbooks())
+
+
+User <<-- TC: Display<<Model>>
+
+@enduml

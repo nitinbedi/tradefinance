@@ -1,0 +1,109 @@
+@startuml
+skinparam backgroundColor #EEFBDC
+skinparam handwritten false
+skinparam sequence {
+ArrowColor DeepSkyBlue
+ActorBorderColor DeepSkyBlue
+LifeLineBackgroundColor #A9DCDF
+LifeLineBorderColor Black
+ParticipantBorderColor DeepSkyBlue
+ParticipantBackgroundColor DodgerBlue
+ParticipantFontName Impact
+ParticipantFontSize 14
+ParticipantFontColor #FFFFFF
+ActorBackgroundColor white
+ActorFontColor DeepSkyBlue
+ActorFontSize 14
+ActorFontName Aapex
+}
+actor User
+participant "Trade Controller" as TC
+participant "TradeValidations" as TV
+participant "TradeService" as TS
+participant "BookService" as BS
+participant "TradeDAO" as TD
+participant "BookDAO" as BD
+participant "MongoOperation" as MO
+
+User -> TC: saveTrade(trade,\nbindingresult, \nModel)
+activate TC
+TC ->TC: Validate\nMandatory Fields\nVersion is >0\nMaturityDate>=\nToday
+TC -> TV: validate(trade)
+activate TV
+TC <<-- TV: Errors?
+note left
+**URL** is //"/savePage"//
+end note
+group HasErrors = true
+TC -> TC : result = \nhasErrors(trade,\n,bindingResult,\nModel)
+
+TC -> BS: if result=true\ngetAll()
+activate BS
+BS -> BD: findAll()
+activate BD
+BD->MO: findAll()
+activate MO
+BD<-MO: Return <<Books>>
+BS <- BD: Return <<Books>>
+
+TC <<-- BS: Return <<Books>>
+TC -> TC : model.addAtrribute(\nbooks())
+TC -> TC : model.addAtrribute(\ntrade())
+
+User <<-- TC: if result=true\n savePage
+end
+group HasErrors = false
+TC -> TC: result==false \n saveTrade(trade)
+
+TC->TS: tradeVersionUpsert(trade)
+activate TS
+TS->TD: getEqOrHigherVersionTrades(trade)
+activate TD
+TD -> MO : find(query\n<<EqOrHigherVersionTrades>>,\n Trade);
+
+TD <<-- MO : <<Trades>>
+TS<<--TD: <<Trades>>
+TS->TS: if trades.length>1 \nReturn false
+TC<-TS: <<false>>
+TS->TS: if trades.length=1\ntrade.version>\n(trades.version)\ntrade.setExpired\nadd(trade)
+
+TS->TD: add(trade)
+TD->MO: insert(trade)
+TD<-MO: <<trade>>
+TS<-TD: <<trade>>
+TS->TS: else if\n trade.version=\ntrades.version\ntrade.setExpired\nedit(trade)
+TS->TD: edit(trade)
+TD->MO: save(trade)
+TD<-MO: <<trade>>
+TS<-TD: <<trade>>
+
+TS->TS: else if\n trades.length=0\ntrade.setExpired\nadd(trade)
+TS->TD: add(trade)
+TD->MO: insert(trade)
+TD<-MO: <<trade>>
+TS<-TD: <<trade>>
+
+TC<-TS: <<true>>
+TC -> TV: bindErrors(trade,\n,bindingResut)
+TC <<-- TV: Errors?
+TC -> TC : result = \nhasErrors(trade,\n,bindingResult,\nModel)
+
+group HasErrors = true
+TC -> BS: if result=true\ngetAll()
+
+BS -> BD: findAll()
+BD->MO: findAll()
+BD<-MO: Return <<Books>>
+
+BS <- BD: Return <<Books>>
+
+TC <<-- BS: Return <<Books>>
+TC -> TC : model.addAtrribute(\nbooks())
+TC -> TC : model.addAtrribute(\ntrade())
+
+User <<-- TC: if result=true\n savePage
+
+User <<-- TC: if result=false\n listPage
+end
+end
+@enduml
